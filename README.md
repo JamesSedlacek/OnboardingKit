@@ -9,7 +9,7 @@
 
 
 <p align="left">
-  <img src = "https://github.com/JamesSedlacek/OnboardingKit/blob/main/Assets/OnboardingKitDemo.gif" height="250">
+  <img src = "https://github.com/JamesSedlacek/OnboardingKit/blob/main/Assets/OnboardingKitDemo.gif" height="800", width="400">
 </p>
 
 ## Description

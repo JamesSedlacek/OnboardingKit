@@ -10,13 +10,16 @@ public struct OnboardingConfiguration {
     let privacyUrlString: String
     let accentColor: Color
     let features: [FeatureInfo]
+    let titleSectionAlignment: HorizontalAlignment
 
     public init(privacyUrlString: String,
                 accentColor: Color = .blue,
-                features: [FeatureInfo]) {
+                features: [FeatureInfo], 
+                titleSectionAlignment: HorizontalAlignment = .leading) {
         self.privacyUrlString = privacyUrlString
         self.accentColor = accentColor
         self.features = features
+        self.titleSectionAlignment = titleSectionAlignment
     }
 }
 

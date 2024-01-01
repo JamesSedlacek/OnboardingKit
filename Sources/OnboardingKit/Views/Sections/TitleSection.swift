@@ -14,7 +14,7 @@ struct TitleSection: View {
     let shouldHideAppIcon: Bool
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: onboardingProvider.configuration.titleSectionAlignment, spacing: 2) {
             if shouldHideAppIcon {
                 Image.appIcon
                     .resizable()

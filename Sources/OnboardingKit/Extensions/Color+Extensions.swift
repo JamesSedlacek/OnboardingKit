@@ -8,7 +8,7 @@ import SwiftUI
 
 extension Color {
 #if canImport(AppKit)
-    static let secondaryBackground = Color(nsColor: .windowBackground)
+    static let secondaryBackground = Color(nsColor: .windowBackgroundColor)
 #endif
 
 #if canImport(UIKit)

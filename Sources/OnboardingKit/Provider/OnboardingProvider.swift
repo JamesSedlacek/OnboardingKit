@@ -29,6 +29,10 @@ public final class OnboardingProvider: OnboardingProviding {
         self.userDefaults = storage
         self.configuration = configuration
     }
+    
+    func resetOnboardingState() {
+        isCompleted = false
+    }
 }
 
 extension OnboardingProvider {

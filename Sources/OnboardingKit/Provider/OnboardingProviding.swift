@@ -12,6 +12,7 @@ protocol OnboardingProviding: AnyObject, Observable {
     var configuration: OnboardingConfiguration { get }
 
     func completeOnboarding()
+    func resetOnboardingState()
 }
 
 extension OnboardingProviding {

@@ -23,7 +23,7 @@ struct BlurView: UIViewRepresentable {
 }
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 struct BlurView: NSViewRepresentable {
     static let background = BlurView(style: .withinWindow)
     let style: NSVisualEffectView.BlendingMode

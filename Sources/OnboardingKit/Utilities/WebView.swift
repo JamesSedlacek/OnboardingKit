@@ -20,7 +20,7 @@ struct WebView: UIViewRepresentable {
 }
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 struct WebView: NSViewRepresentable {
     let url: URL
 

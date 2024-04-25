@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 typealias ImageRepresentable = NSImage
 #endif
@@ -22,7 +22,7 @@ extension Image {
 #if canImport(UIKit)
         self.init(uiImage: image)
 #endif
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
         self.init(nsImage: image)
 #endif
     }

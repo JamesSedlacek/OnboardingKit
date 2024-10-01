@@ -12,7 +12,7 @@ public final class OnboardingProvider: OnboardingProviding {
     private let userDefaults: UserDefaults
     let configuration: OnboardingConfiguration
 
-    var isCompleted: Bool {
+    public var isCompleted: Bool {
         get {
             access(keyPath: \.isCompleted)
             return userDefaults.bool(forKey: Self.onboardingKey)
@@ -24,8 +24,10 @@ public final class OnboardingProvider: OnboardingProviding {
         }
     }
 
-    public init(storage: UserDefaults = .standard,
-                configuration: OnboardingConfiguration) {
+    public init(
+        storage: UserDefaults = .standard,
+        configuration: OnboardingConfiguration
+    ) {
         self.userDefaults = storage
         self.configuration = configuration
     }

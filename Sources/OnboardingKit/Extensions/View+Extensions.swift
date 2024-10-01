@@ -12,8 +12,10 @@ public extension View {
     ///   - storage: The UserDefaults storage to use. Defaults to .standard.
     ///   - config: The configuration for the onboarding.
     /// - Returns: The original view, modified with the onboarding view modifier.
-    func showOnboardingIfNeeded(storage: UserDefaults = .standard,
-                                using config: OnboardingConfiguration) -> some View {
+    func showOnboardingIfNeeded(
+        storage: UserDefaults = .standard,
+        using config: OnboardingConfiguration
+    ) -> some View {
         modifier(OnboardingViewModifier(storage: storage, config: config))
     }
 }

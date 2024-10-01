@@ -14,11 +14,13 @@ struct OnboardingViewModifier: ViewModifier {
     }
 
     func body(content: Content) -> some View {
-        if onboardingProvider.isShowingOnboarding {
-            OnboardingView()
-                .environment(onboardingProvider)
-        } else {
-            content
+        Group {
+            if onboardingProvider.isShowingOnboarding {
+                OnboardingView()
+            } else {
+                content
+            }
         }
+        .environment(onboardingProvider)
     }
 }

@@ -7,7 +7,7 @@
 import SwiftUI
 
 extension Color {
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
     static let secondaryBackground = Color(nsColor: .windowBackgroundColor)
 #endif
 

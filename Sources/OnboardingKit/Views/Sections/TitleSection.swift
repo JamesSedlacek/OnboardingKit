@@ -22,7 +22,7 @@ struct TitleSection: View {
                     .clipShape(.rect(cornerRadius: 10))
                     .padding(.bottom)
             }
-            Text("Welcome to")
+            Text(String(localized: "welcome_to", comment: "Welcome text"))
                 .foregroundColor(.primary)
                 .fontWeight(.semibold)
             Text(Bundle.main.displayName)

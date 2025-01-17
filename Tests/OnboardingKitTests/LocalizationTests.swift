@@ -1,27 +1,22 @@
-//
-//  LocalizationTest.swift
 @testable import OnboardingKit
 import XCTest
 
 final class LocalizationTest: XCTestCase {
     func testLocalizedStringsFilesExist() {
-        let stringsFilePaths = Bundle.module.paths(forResourcesOfType: "strings", inDirectory: nil)
-        let expectedGermanPathSuffix = "/de.lproj/Localizable.strings"
-        let expectedEnglishPathSuffix = "/en.lproj/Localizable.strings"
+        // List of expected languages
+        let expectedLanguages = ["de", "en"] // Add more languages as needed
 
-        var germanStringsFileExists = false
-        var englishStringsFileExists = false
-
-        for path in stringsFilePaths {
-            if path.hasSuffix(expectedGermanPathSuffix) {
-                germanStringsFileExists = true
-            }
-            if path.hasSuffix(expectedEnglishPathSuffix) {
-                englishStringsFileExists = true
-            }
+        // Get the resource bundle's base URL
+        guard let resourcesURL = Bundle.module.resourceURL else {
+            XCTFail("Resource URL for the module bundle is unavailable.")
+            return
         }
 
-        XCTAssertTrue(germanStringsFileExists, "German Localizable.strings file is missing.")
-        XCTAssertTrue(englishStringsFileExists, "English Localizable.strings file is missing.")
+        // Check for each language's .lproj directory
+        for language in expectedLanguages {
+            let languageDirectory = resourcesURL.appendingPathComponent("\(language).lproj")
+            let stringsFile = languageDirectory.appendingPathComponent("Localizable.strings")
+            XCTAssertTrue(FileManager.default.fileExists(atPath: stringsFile.path), "\(language) Localizable.strings file is missing.")
+        }
     }
 }

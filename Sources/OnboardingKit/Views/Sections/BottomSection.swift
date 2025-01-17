@@ -20,9 +20,13 @@ struct BottomSection: View {
                 .foregroundStyle(onboardingProvider.configuration.accentColor)
                 .frame(width: 32, height: 32)
             Group {
-                Text(String(format: String(localized: "data_collection_info", comment: "Data collection info"), Bundle.main.displayName))
+                let dataCollectionInfoMsg = String.localizedStringWithFormat(
+                    NSLocalizedString("data_collection_info", bundle: .module, comment: "Data collection info"),
+                    Bundle.main.displayName
+                )
+                Text(dataCollectionInfoMsg)
                     .foregroundStyle(.secondary) +
-                Text(String(localized: "data_management", comment: "Data management info"))
+                Text("data_management", bundle: .module, comment: "Data management info")
                     .foregroundStyle(onboardingProvider.configuration.accentColor)
                     .bold()
             }

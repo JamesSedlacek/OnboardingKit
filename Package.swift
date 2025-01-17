@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "OnboardingKit",
+    defaultLocalization: "en",
     platforms: [
         .macOS(.v14),
         .iOS(.v17)
@@ -16,7 +17,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OnboardingKit"),
+            name: "OnboardingKit",
+            path: "Sources",
+            resources: [
+                .process("Resources/en.lproj/Localizable.strings"),
+                .process("Resources/de.lproj/Localizable.strings")
+            ]
+        ),
         .testTarget(
             name: "OnboardingKitTests",
             dependencies: ["OnboardingKit"]),

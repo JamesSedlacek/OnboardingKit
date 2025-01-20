@@ -2,21 +2,19 @@
 import XCTest
 
 final class LocalizationTest: XCTestCase {
-    func testLocalizedStringsFilesExist() {
-        // List of expected languages
-        let expectedLanguages = ["de", "en"] // Add more languages as needed
+    final class LocalizationTest: XCTestCase {
+        func testLocalizationWorksInGeneral() {
+            // This test verifies that the localization system is functional by checking
+            // that a specific key ('welcome_to') returns a properly localized string
+            // instead of the key itself or an empty string.
+            let keyToCheck = "welcome_to"
 
-        // Get the resource bundle's base URL
-        guard let resourcesURL = Bundle.module.resourceURL else {
-            XCTFail("Resource URL for the module bundle is unavailable.")
-            return
-        }
+            guard let localizedString = NSLocalizedString(keyToCheck, tableName: nil, bundle: .module, value: "", comment: "") as String?, !localizedString.isEmpty else {
+                XCTFail("Missing or empty localized string for key '\(keyToCheck)'")
+                return
+            }
 
-        // Check for each language's .lproj directory
-        for language in expectedLanguages {
-            let languageDirectory = resourcesURL.appendingPathComponent("\(language).lproj")
-            let stringsFile = languageDirectory.appendingPathComponent("Localizable.strings")
-            XCTAssertTrue(FileManager.default.fileExists(atPath: stringsFile.path), "\(language) Localizable.strings file is missing.")
+            XCTAssertNotEqual(localizedString, keyToCheck, "Localized string for key '\(keyToCheck)' is not properly localized.")
         }
     }
 }

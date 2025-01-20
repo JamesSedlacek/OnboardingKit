@@ -37,6 +37,15 @@ https://github.com/JamesSedlacek/OnboardingKit.git
 
 <br>
 
+## Supported Languages
+
+This project currently supports the following languages:
+
+- **English (en)**
+- **German (de)**
+
+<br>
+
 ## Usage
 
 1. Create an `Onboarding Configuration`.

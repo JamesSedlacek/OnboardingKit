@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "OnboardingKit",
+    defaultLocalization: "en",
     platforms: [
         .macOS(.v14),
         .iOS(.v17)
@@ -16,7 +17,12 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OnboardingKit"),
+            name: "OnboardingKit",
+            path: "Sources",
+            resources: [
+                .process("Resources/Localizable.xcstrings")
+            ]
+        ),
         .testTarget(
             name: "OnboardingKitTests",
             dependencies: ["OnboardingKit"]),

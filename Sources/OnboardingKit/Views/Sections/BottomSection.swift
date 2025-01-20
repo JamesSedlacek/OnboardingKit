@@ -20,9 +20,13 @@ struct BottomSection: View {
                 .foregroundStyle(onboardingProvider.configuration.accentColor)
                 .frame(width: 32, height: 32)
             Group {
-                Text("\(Bundle.main.displayName ?? "Default App Name") collects your activity, which is not associated with your Apple ID, in order to improve and personalize the application. ")
+                let dataCollectionInfoMsg = String.localizedStringWithFormat(
+                    NSLocalizedString("data_collection_info", bundle: .module, comment: "Data collection info"),
+                    Bundle.main.displayName
+                )
+                Text(dataCollectionInfoMsg)
                     .foregroundStyle(.secondary) +
-                Text("See how your data is managed...")
+                Text("data_management", bundle: .module, comment: "Data management info")
                     .foregroundStyle(onboardingProvider.configuration.accentColor)
                     .bold()
             }

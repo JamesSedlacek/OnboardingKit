@@ -15,7 +15,7 @@ struct FeatureView: View {
             info.image
                 .font(.title)
                 .foregroundStyle(accentColor)
-                .frame(minWidth: 40)
+                .frame(minWidth: 50)
             VStack(alignment: .leading, spacing: 4) {
                 Text(info.title)
                     .foregroundStyle(.primary)

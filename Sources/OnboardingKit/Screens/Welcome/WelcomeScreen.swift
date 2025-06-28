@@ -1,12 +1,12 @@
 //
-//  OnboardingScreen.swift
+//  WelcomeScreen.swift
 //
 //  Created by James Sedlacek on 12/30/23.
 //
 
 import SwiftUI
 
-public struct OnboardingScreen<C: View> {
+public struct WelcomeScreen<C: View> {
     private let config: OnboardingConfiguration
     private let appIcon: Image
     private let continueAction: () -> Void
@@ -33,7 +33,7 @@ public struct OnboardingScreen<C: View> {
 }
 
 @MainActor
-extension OnboardingScreen: View {
+extension WelcomeScreen: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 40) {
@@ -77,7 +77,7 @@ extension OnboardingScreen: View {
 }
 
 #Preview {
-    OnboardingScreen(
+    WelcomeScreen(
         config: .mock,
         appIcon: Image(.mockAppIcon),
         continueAction: {

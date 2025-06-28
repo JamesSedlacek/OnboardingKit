@@ -112,7 +112,7 @@ extension OnboardingModifier: ViewModifier {
         if isOnboardingCompleted {
             content
         } else {
-            OnboardingScreen(
+            WelcomeScreen(
                 config: config,
                 appIcon: appIcon,
                 continueAction: continueAction,

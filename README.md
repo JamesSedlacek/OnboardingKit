@@ -7,6 +7,8 @@
 <a href="https://github.com/JamesSedlacek/OnboardingKit/pulls"><img src="https://img.shields.io/github/issues-pr/JamesSedlacek/OnboardingKit" alt="Pull Requests Badge"/></a>
 <a href="https://github.com/JamesSedlacek/OnboardingKit/issues"><img src="https://img.shields.io/github/issues/JamesSedlacek/OnboardingKit" alt="Issues Badge"/></a>
 
+https://github.com/user-attachments/assets/ce319597-e5ba-434a-ab45-c66a6a7e501a
+
 ## Description
 OnboardingKit is a SwiftUI library that provides an Apple-like app onboarding experience.
 

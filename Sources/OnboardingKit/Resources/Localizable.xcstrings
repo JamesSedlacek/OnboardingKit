@@ -52,6 +52,12 @@
             "value" : "Continuar"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -112,6 +118,12 @@
           }
         },
         "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ coleta sua atividade, que não está associada ao seu Apple ID. "
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ coleta sua atividade, que não está associada ao seu Apple ID. "
@@ -182,6 +194,12 @@
             "value" : "Veja como seus dados são gerenciados..."
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja como seus dados são gerenciados..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -242,6 +260,12 @@
           }
         },
         "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bem-vindo ao"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bem-vindo ao"

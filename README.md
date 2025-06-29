@@ -180,6 +180,46 @@ struct SettingsView: View {
 }
 ```
 
+#### Presenting Onboarding as a Modal Sheet
+
+Present onboarding as a sheet above your main content, instead of replacing the root view:
+```swift
+import OnboardingKit
+import SwiftUI
+
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .presentOnboardingIfNeeded(
+                    config: .production,
+                    appIcon: Image("AppIcon"),
+                    dataPrivacyContent: {
+                        PrivacyPolicyView()
+                    }
+                )
+        }
+    }
+}
+```
+
+#### Multi-Screen Onboarding Flows
+
+Need more than a single welcome screen? Both modifiers support a custom flow once the initial onboarding is completed, allowing you to show setup, permissions, or tutorials before marking onboarding as complete.
+```swift
+.showOnboardingIfNeeded(
+    config: .production,
+    appIcon: Image("AppIcon"),
+    dataPrivacyContent: {
+        PrivacyPolicyView()
+    },
+    flowContent: {
+        CustomTutorialView(onFinish: { /* do something */ })
+    }
+)
+```
+
 ## Configuration Options
 
 ### OnboardingConfiguration

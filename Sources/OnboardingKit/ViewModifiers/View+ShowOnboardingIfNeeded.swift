@@ -66,41 +66,97 @@ public extension View {
         @ViewBuilder dataPrivacyContent: @escaping () -> C
     ) -> some View {
         modifier(
-            OnboardingModifier(
+            OnboardingModifier<C, EmptyView>(
                 storage: storage,
                 config: config,
                 appIcon: appIcon,
                 continueAction: continueAction,
-                dataPrivacyContent: dataPrivacyContent
+                dataPrivacyContent: dataPrivacyContent,
+                flowContent: nil
+            )
+        )
+    }
+
+    /// Conditionally shows onboarding content if the user hasn't completed it yet, then performs a custom onboarding flow.
+    ///
+    /// This overload allows you to present a custom "flow" after the initial onboarding welcome screen is completed.
+    /// The `flowContent` closure is displayed after the user continues on the welcome screen but before onboarding is marked complete.
+    /// This enables richer onboarding experiences such as personal setup steps, permissions prompts, tutorials, etc.
+    ///
+    /// ## Usage
+    /// ```swift
+    /// ContentView()
+    ///     .showOnboardingIfNeeded(
+    ///         config: config,
+    ///         appIcon: appIcon,
+    ///         dataPrivacyContent: { PrivacyView() },
+    ///         flowContent: {
+    ///             MyOnboardingSetupView(onFinish: { ... })
+    ///         }
+    ///     )
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - storage: The AppStorage property for tracking completion state (defaults to `.onboarding`)
+    ///   - config: Configuration for customizing the onboarding experience
+    ///   - appIcon: The app icon image to display in the onboarding
+    ///   - continueAction: Optional custom action to perform when continuing (defaults to marking complete)
+    ///   - dataPrivacyContent: A view builder that provides the data privacy content
+    ///   - flowContent: A view builder for displaying custom content after the welcome screen but before marking onboarding complete
+    ///
+    /// - Returns: A modified view that conditionally shows onboarding content followed by a custom flow
+    func showOnboardingIfNeeded<C: View, F: View>(
+        storage: AppStorage<Bool> = .onboarding,
+        config: OnboardingConfiguration,
+        appIcon: Image,
+        continueAction: (() -> Void)? = nil,
+        @ViewBuilder dataPrivacyContent: @escaping () -> C,
+        @ViewBuilder flowContent: @escaping () -> F
+    ) -> some View {
+        modifier(
+            OnboardingModifier<C, F>(
+                storage: storage,
+                config: config,
+                appIcon: appIcon,
+                continueAction: continueAction,
+                dataPrivacyContent: dataPrivacyContent,
+                flowContent: flowContent
             )
         )
     }
 }
 
-struct OnboardingModifier<C: View> {
+struct OnboardingModifier<C: View, F: View> {
     private let config: OnboardingConfiguration
     private let appIcon: Image
     private let _continueAction: (() -> Void)?
     private let dataPrivacyContent: () -> C
+    private let flowContent: (() -> F)?
     @AppStorage private var isOnboardingCompleted: Bool
+    @State private var isWelcomeScreenCompleted: Bool = false
 
     init(
         storage: AppStorage<Bool>,
         config: OnboardingConfiguration,
         appIcon: Image,
         continueAction: (() -> Void)?,
-        @ViewBuilder dataPrivacyContent: @escaping () -> C
+        @ViewBuilder dataPrivacyContent: @escaping () -> C,
+        flowContent: (() -> F)? = nil
     ) {
         self._isOnboardingCompleted = storage
         self.config = config
         self.appIcon = appIcon
         self._continueAction = continueAction
         self.dataPrivacyContent = dataPrivacyContent
+        self.flowContent = flowContent
     }
 
     private func continueAction() {
         if let action = _continueAction {
             action()
+            isWelcomeScreenCompleted = true
+        } else if flowContent != nil {
+            isWelcomeScreenCompleted = true
         } else {
             isOnboardingCompleted = true
         }
@@ -111,6 +167,8 @@ extension OnboardingModifier: ViewModifier {
     func body(content: Content) -> some View {
         if isOnboardingCompleted {
             content
+        } else if let flowContent, isWelcomeScreenCompleted {
+            flowContent()
         } else {
             WelcomeScreen(
                 config: config,
@@ -122,7 +180,7 @@ extension OnboardingModifier: ViewModifier {
     }
 }
 
-#Preview {
+#Preview("Welcome Screen Only") {
     VStack {
         Spacer()
     }
@@ -131,6 +189,22 @@ extension OnboardingModifier: ViewModifier {
         appIcon: Image(.mockAppIcon),
         dataPrivacyContent: {
             Text("Privacy Policy Content")
+        }
+    )
+}
+
+#Preview("Welcome Screen with Flow") {
+    VStack {
+        Spacer()
+    }
+    .showOnboardingIfNeeded(
+        config: .mock,
+        appIcon: Image(.mockAppIcon),
+        dataPrivacyContent: {
+            Text("Privacy Policy Content")
+        },
+        flowContent: {
+            Text("Flow Content")
         }
     )
 }

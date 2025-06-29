@@ -102,6 +102,7 @@ extension BottomSection: View {
             startPoint: .top,
             endPoint: .bottom
         )
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 

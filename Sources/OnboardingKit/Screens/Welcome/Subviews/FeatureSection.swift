@@ -37,9 +37,18 @@ struct FeatureSection: View {
         .opacity(isAnimating[index] ? 1 : 0)
         .offset(y: isAnimating[index] ? 0 : 100)
         .onAppear {
+            // Platform-specific base delay to sync with parent animations
+            let baseDelay: Double = {
+                #if os(macOS)
+                return 0.5  // Shorter base delay for macOS sheets
+                #else
+                return 1.6  // Keep original timing for iOS/iPadOS
+                #endif
+            }()
+            
             withAnimation(
                 .easeInOut(duration: 0.8)
-                .delay(1.6 + Double(index) * 0.16)
+                .delay(baseDelay + Double(index) * 0.16)
             ) {
                 isAnimating[index] = true
             }

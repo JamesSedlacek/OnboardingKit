@@ -9,15 +9,8 @@ import SwiftUI
 
 @MainActor
 extension LocalizedStringKey {
-    static let continueButtonTitle = LocalizedStringKey("Continue")
-    static let welcomeTo = LocalizedStringKey("Welcome to")
-    static let dataPrivacyButtonTitle = LocalizedStringKey("See how your data is managed...")
-}
-
-extension String {
-    static func dataPrivacy(for appTitle: String) -> String {
-        let formatString = String(localized: "dataPrivacy", bundle: .module)
-        let formattedString = String.localizedStringWithFormat(formatString, appTitle)
-        return formattedString
-    }
+    static let actionContinue = LocalizedStringKey("action.continue")
+    static let onboardingWelcomeTo = LocalizedStringKey("onboarding.welcome.to")
+    static let privacyDataCollection = LocalizedStringKey("privacy.data.collection")
+    static let privacyDataManagement = LocalizedStringKey("privacy.data.management")
 }

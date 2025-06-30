@@ -1,7 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Continue" : {
+    "action.continue" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -72,149 +72,7 @@
         }
       }
     },
-    "dataPrivacy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ erfasst Ihre Aktivitäten, die nicht mit Ihrer Apple-ID verknüpft sind. "
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ collects your activity, which is not associated with your Apple ID. "
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ recopila tu actividad, que no está asociada con tu Apple ID. "
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ collecte votre activité, qui n'est pas associée à votre Apple ID. "
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ raccoglie la tua attività, che non è associata al tuo Apple ID. "
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@はあなたのApple IDに関連付けられていないアクティビティを収集します。 "
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@는 Apple ID와 연결되지 않은 활동을 수집합니다. "
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ coleta sua atividade, que não está associada ao seu Apple ID. "
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ coleta sua atividade, que não está associada ao seu Apple ID. "
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ собирает данные о вашей активности, которые не связаны с вашим Apple ID. "
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@收集您的活动信息，但这些信息与您的Apple ID无关。 "
-          }
-        }
-      }
-    },
-    "See how your data is managed..." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erfahren Sie, wie Ihre Daten verwaltet werden..."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See how your data is managed..."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver cómo se gestionan tus datos..."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voir comment vos données sont gérées..."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scopri come vengono gestiti i tuoi dati..."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "データの管理方法を確認する..."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "데이터 관리 방식 보기..."
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veja como seus dados são gerenciados..."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veja como seus dados são gerenciados..."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Посмотреть, как управляются ваши данные..."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "了解数据管理方式..."
-          }
-        }
-      }
-    },
-    "Welcome to" : {
+    "onboarding.welcome.to" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -281,6 +139,148 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "欢迎使用"
+          }
+        }
+      }
+    },
+    "privacy.data.collection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " erfasst Ihre Aktivitäten, die nicht mit Ihrer Apple-ID verknüpft sind. "
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " collects your activity, which is not associated with your Apple ID. "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " recopila tu actividad, que no está asociada con tu Apple ID. "
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " collecte votre activité, qui n'est pas associée à votre Apple ID. "
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " raccoglie la tua attività, che non è associata al tuo Apple ID. "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "はあなたのApple IDに関連付けられていないアクティビティを収集します。 "
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "는 Apple ID와 연결되지 않은 활동을 수집합니다. "
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " coleta sua atividade, que não está associada ao seu Apple ID. "
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " coleta sua atividade, que não está associada ao seu Apple ID. "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " собирает данные о вашей активности, которые не связаны с вашим Apple ID. "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收集您的活动信息，但这些信息与您的Apple ID无关。 "
+          }
+        }
+      }
+    },
+    "privacy.data.management" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erfahren Sie, wie Ihre Daten verwaltet werden..."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See how your data is managed..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver cómo se gestionan tus datos..."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir comment vos données sont gérées..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scopri come vengono gestiti i tuoi dati..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データの管理方法を確認する..."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 관리 방식 보기..."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja como seus dados são gerenciados..."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veja como seus dados são gerenciados..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Посмотреть, как управляются ваши данные..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解数据管理方式..."
           }
         }
       }

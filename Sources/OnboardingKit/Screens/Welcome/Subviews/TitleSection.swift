@@ -40,6 +40,7 @@ extension TitleSection: View {
         }
         .frame(
             maxWidth: .infinity,
+            maxHeight: .infinity,
             alignment: config.titleSectionAlignment.toAlignment
         )
         .padding(.horizontal, 64)
@@ -61,7 +62,7 @@ extension TitleSection: View {
     }
 
     private var welcomeToText: some View {
-        Text(.welcomeTo)
+        Text(.onboardingWelcomeTo, bundle: .module)
             .foregroundColor(.primary)
             .fontWeight(.semibold)
     }

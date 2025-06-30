@@ -67,9 +67,11 @@ extension BottomSection: View {
 
     private var disclosureText: some View {
         Group {
-            Text(verbatim: .dataPrivacy(for: appDisplayName))
+            Text(verbatim: appDisplayName)
                 .foregroundStyle(.secondary) +
-            Text(.dataPrivacyButtonTitle)
+            Text(.privacyDataCollection, bundle: .module)
+                .foregroundStyle(.secondary) +
+            Text(.privacyDataManagement, bundle: .module)
                 .foregroundStyle(accentColor)
                 .bold()
         }
@@ -91,7 +93,7 @@ extension BottomSection: View {
     }
 
     private func continueText() -> some View {
-        Text(.continueButtonTitle)
+        Text(.actionContinue, bundle: .module)
             .padding(.vertical, 6)
             .frame(maxWidth: .infinity)
     }

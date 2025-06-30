@@ -72,7 +72,6 @@ extension WelcomeScreen: View {
             continueAction: continueAction,
             dataPrivacyContent: dataPrivacyContent
         )
-        .opacity(isAnimating ? 1 : 0)
     }
 }
 

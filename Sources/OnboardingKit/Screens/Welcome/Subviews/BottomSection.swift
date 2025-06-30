@@ -28,7 +28,16 @@ struct BottomSection<C: View> {
     }
 
     private func onAppear() {
-        withAnimation(.easeInOut(duration: 0.8).delay(2.8)) {
+        // Platform-specific animation timing for bottom section
+        let delay: Double = {
+            #if os(macOS)
+            return 1.2  // Shorter delay for macOS sheets
+            #else
+            return 2.8  // Keep original timing for iOS/iPadOS
+            #endif
+        }()
+        
+        withAnimation(.easeInOut(duration: 0.8).delay(delay)) {
             isAnimating = true
         }
     }

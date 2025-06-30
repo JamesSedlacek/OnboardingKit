@@ -26,7 +26,16 @@ public struct WelcomeScreen<C: View> {
     }
 
     private func onAppear() {
-        withAnimation(.easeInOut(duration: 0.8).delay(1.6)) {
+        // Platform-specific animation timing for better sheet presentation on macOS
+        let delay: Double = {
+            #if os(macOS)
+            return 0.3  // Shorter delay for macOS sheets to avoid conflicts
+            #else
+            return 1.6  // Keep original timing for iOS/iPadOS
+            #endif
+        }()
+        
+        withAnimation(.easeInOut(duration: 0.8).delay(delay)) {
             isAnimating = true
         }
     }
@@ -47,6 +56,10 @@ extension WelcomeScreen: View {
         .background(.background.secondary)
         .safeAreaInset(edge: .bottom, content: bottomSection)
         .onAppear(perform: onAppear)
+        .onDisappear {
+            // Reset animation state for proper re-presentation in sheets
+            isAnimating = false
+        }
         .dynamicTypeSize(.xSmall ... .xxxLarge)
     }
 

@@ -61,7 +61,7 @@ extension TitleSection: View {
     }
 
     private var welcomeToText: some View {
-        Text(.welcomeTo)
+        Text(.welcomeTo, bundle: .module)
             .foregroundColor(.primary)
             .fontWeight(.semibold)
     }

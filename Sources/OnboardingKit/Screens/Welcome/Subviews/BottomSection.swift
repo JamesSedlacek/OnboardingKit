@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 struct BottomSection<C: View> {
     private let accentColor: Color
     private let appDisplayName: String
@@ -28,16 +29,7 @@ struct BottomSection<C: View> {
     }
 
     private func onAppear() {
-        // Platform-specific animation timing for bottom section
-        let delay: Double = {
-            #if os(macOS)
-            return 1.2  // Shorter delay for macOS sheets
-            #else
-            return 2.8  // Keep original timing for iOS/iPadOS
-            #endif
-        }()
-        
-        withAnimation(.easeInOut(duration: 0.8).delay(delay)) {
+        Animation.bottomSection.deferred {
             isAnimating = true
         }
     }

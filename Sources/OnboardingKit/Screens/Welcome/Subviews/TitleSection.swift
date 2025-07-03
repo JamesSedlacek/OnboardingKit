@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 struct TitleSection {
     private let config: OnboardingConfiguration
     private let appIcon: Image
@@ -24,16 +25,7 @@ struct TitleSection {
     }
 
     private func onAppear() {
-        // Platform-specific animation timing to sync with parent WelcomeScreen
-        let delay: Double = {
-            #if os(macOS)
-            return 0.1  // Slight delay after parent animation starts on macOS
-            #else
-            return 0.2  // Slightly longer delay for iOS to maintain smooth sequence
-            #endif
-        }()
-        
-        withAnimation(.easeInOut(duration: 0.8).delay(delay)) {
+        Animation.titleSection.deferred {
             isAnimating = true
         }
     }

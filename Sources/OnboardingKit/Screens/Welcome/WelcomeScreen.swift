@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+@MainActor
 public struct WelcomeScreen<C: View> {
     private let config: OnboardingConfiguration
     private let appIcon: Image
@@ -26,16 +27,7 @@ public struct WelcomeScreen<C: View> {
     }
 
     private func onAppear() {
-        // Platform-specific animation timing for better sheet presentation on macOS
-        let delay: Double = {
-            #if os(macOS)
-            return 0.3  // Shorter delay for macOS sheets to avoid conflicts
-            #else
-            return 1.6  // Keep original timing for iOS/iPadOS
-            #endif
-        }()
-        
-        withAnimation(.easeInOut(duration: 0.8).delay(delay)) {
+        Animation.welcomeScreen.deferred {
             isAnimating = true
         }
     }
@@ -51,15 +43,12 @@ extension WelcomeScreen: View {
             }
             .padding(.vertical, 24)
         }
+        .scrollIndicators(.hidden)
         .defaultScrollAnchor(.center, for: .alignment)
         .scrollBounceBehavior(.basedOnSize)
         .background(.background.secondary)
         .safeAreaInset(edge: .bottom, content: bottomSection)
         .onAppear(perform: onAppear)
-        .onDisappear {
-            // Reset animation state for proper re-presentation in sheets
-            isAnimating = false
-        }
         .dynamicTypeSize(.xSmall ... .xxxLarge)
     }
 

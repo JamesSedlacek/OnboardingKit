@@ -64,7 +64,7 @@ public struct FeatureInfo: Identifiable {
 }
 
 @MainActor
-extension FeatureInfo {
+public extension FeatureInfo {
     /// Mock feature representing cross-platform support.
     static let mock: FeatureInfo = .init(
         image: Image(systemName: "laptopcomputer.and.iphone"),

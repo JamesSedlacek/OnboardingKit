@@ -52,11 +52,17 @@ extension BottomSection: View {
         .background(.background.secondary)
         .mask(opacityLinearGradient)
         .opacity(isAnimating ? 1 : 0)
-        .sheet(
-            isPresented: $isDataPrivacyPresented,
-            content: dataPrivacyContent
-        )
         .onAppear(perform: onAppear)
+        .styledSheet(
+            isPresented: $isDataPrivacyPresented,
+            content: dataPrivacySheet
+        )
+    }
+
+    private func dataPrivacySheet() -> some View {
+        NavigationStack {
+            dataPrivacyContent()
+        }
     }
 
     private var dataPrivacyImage: some View {

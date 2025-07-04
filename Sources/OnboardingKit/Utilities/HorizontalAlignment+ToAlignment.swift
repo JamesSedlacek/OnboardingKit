@@ -1,5 +1,5 @@
 //
-//  HorinzontalAlignment+ToAlignment.swift
+//  HorizontalAlignment+ToAlignment.swift
 //  OnboardingKit
 //
 //  Created by James Sedlacek on 6/28/25.
